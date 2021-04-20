@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :move_to_index
+  before_action :item_user
   def index
     @item = Item.where(id:params[:item_id])
     @orderadress = OrderAdress.new
@@ -27,6 +28,11 @@ class OrdersController < ApplicationController
   def move_to_index
     @item = Item.find(params[:item_id])
     if  @item.order != nil
+      redirect_to root_path
+    end
+  end
+  def item_user
+    if @item.user_id == current_user.id
       redirect_to root_path
     end
   end

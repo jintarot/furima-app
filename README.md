@@ -24,9 +24,7 @@ Things you may want to cover:
 * ...
 
 とりま読む
-js
-active strage
-collection
+
 validates
 search
 faker
