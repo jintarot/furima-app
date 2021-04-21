@@ -8,6 +8,7 @@ class Category < ActiveHash::Base
     {id:6,  name:"本・音楽・ゲーム"},
     {id:7,  name:"おもちゃ"}
   ]
+  
   include ActiveHash::Associations
   has_many :items
 end

@@ -8,5 +8,8 @@ class Item < ApplicationRecord
   belongs_to :category
   has_one :pay
   validates :image ,presence: true
-  
+
+  with_options presence: true,numericality:{other_than:0,message:"is invalid. Include hyphen(-)"} do
+  validates :area_id,:item_category_id,:yamato_id,:days_id,:item_statue_id
+  end
 end

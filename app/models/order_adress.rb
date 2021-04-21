@@ -5,4 +5,5 @@ class OrderAdress
     @order = Order.create(cost:cost,item_id:item_id,user_id:user_id)
     @adress = Adress.create(sikutyouson:sikutyouson,banti:banti,yubin:yubin,building:building,area:area,phone:phone,order_id:@order.id)
   end
+  
 end
