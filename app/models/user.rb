@@ -12,4 +12,5 @@ class User < ApplicationRecord
     validates :first_name, format:{with:/\A[ぁ-んァ-ン一-龥]/,message:"is invalid. Input full-width characters."}
     validates :last_name, format:{with:/\A[ぁ-んァ-ン一-龥]/,message:"is invalid. Input full-width characters."}
   end
+  
 end
