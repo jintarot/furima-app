@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
-  before_action :already_order,except:[:index,:show,:new,:create]
+  before_action :already_order,except:[:index,:show,:new,:create,:search]
+  before_action :search_item,only: [:index,:search]
   def index
     @items = Item.all
+    category_item
   end
   def new
     @item = Item.new
@@ -41,7 +43,7 @@ class ItemsController < ApplicationController
     end
   end
   def search
-    @result = @p.result
+    @results = @p.result
   end
   private
   def item_params
@@ -54,6 +56,9 @@ class ItemsController < ApplicationController
     end
   end
   def search_item
-    @p = Item.where(params[:q])
+    @p = Item.ransack(params[:q])
+  end
+  def category_item
+    @category = Category.all
   end
 end
