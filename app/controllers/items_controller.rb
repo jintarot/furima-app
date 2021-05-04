@@ -40,6 +40,9 @@ class ItemsController < ApplicationController
       render :show
     end
   end
+  def search
+    @result = @p.result
+  end
   private
   def item_params
     params.require(:item).permit(:item_name,:item_category_id,:item_statue_id,:yamato_id,:cost,:area_id,:days_id,:image,:item_text).merge(user_id: current_user.id)
@@ -49,5 +52,8 @@ class ItemsController < ApplicationController
     if  @item.order != nil
       redirect_to root_path
     end
+  end
+  def search_item
+    @p = Item.where(params[:q])
   end
 end
