@@ -8,6 +8,7 @@ class CreateAdresses < ActiveRecord::Migration[6.0]
       t.integer :banti
       t.integer :area
       t.references :order ,foreign_key: true
+      
       t.timestamps
     end
   end
